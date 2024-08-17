@@ -7,6 +7,7 @@ import {
   OnInit,
   SimpleChanges
 } from '@angular/core';
+import {interval, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-products-page',
@@ -20,11 +21,16 @@ export class ProductsPageComponent implements
 
   isProductVisible = true;
   currentPrice:number = 10;
+  tick = 0;
 
   constructor() {}
 
   ngOnInit() {
     console.log('OnInit');
+    interval(1000).subscribe(() => {
+      console.log('interval page ' + this.tick);
+      this.tick++;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -53,6 +59,7 @@ export class ProductsPageComponent implements
 
   ngOnDestroy() {
     console.log('OnDestroy');
+
   }
 
   changePrice() {
