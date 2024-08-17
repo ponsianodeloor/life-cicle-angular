@@ -1,2 +1,9 @@
 <p>products-page works!</p>
 <app-product-price-page></app-product-price-page>
+<p>
+  is product visible: {{ isProductVisible }}
+</p>
+
+<button (click)="isProductVisible = !isProductVisible">
+  Toggle Product
+</button>
