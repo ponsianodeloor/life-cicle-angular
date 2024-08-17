@@ -19,6 +19,7 @@ export class ProductsPageComponent implements
   AfterViewInit, AfterViewChecked, OnDestroy {
 
   isProductVisible = true;
+  currentPrice:number = 10;
 
   constructor() {}
 
@@ -52,6 +53,14 @@ export class ProductsPageComponent implements
 
   ngOnDestroy() {
     console.log('OnDestroy');
+  }
+
+  changePrice() {
+    this.currentPrice = this.makeRandomPriceBetween(10, 100);
+  }
+
+  makeRandomPriceBetween(min:number, max:number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
 }

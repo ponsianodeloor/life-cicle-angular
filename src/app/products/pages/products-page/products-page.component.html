@@ -1,9 +1,22 @@
 <p>products-page works!</p>
-<app-product-price-page></app-product-price-page>
+<app-product-price-page
+  *ngIf="isProductVisible"
+  [price]="currentPrice"
+>
+
+</app-product-price-page>
 <p>
   is product visible: {{ isProductVisible }}
 </p>
 
+<p>
+  current price: {{ currentPrice }}
+</p>
+
 <button (click)="isProductVisible = !isProductVisible">
   Toggle Product
+</button>
+
+<button (click)="changePrice()">
+  Random Price
 </button>
